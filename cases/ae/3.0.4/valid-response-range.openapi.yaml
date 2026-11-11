@@ -1,0 +1,83 @@
+openapi: 3.0.4
+info:
+  title: Conformance base
+  version: 1.0.0
+servers:
+- url: https://api.example.com/v1
+paths:
+  /pets:
+    get:
+      operationId: listPets
+      tags:
+      - pets
+      parameters:
+      - name: limit
+        in: query
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: A list of pets
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Pet'
+    post:
+      operationId: createPet
+      tags:
+      - pets
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Pet'
+      responses:
+        '201':
+          description: Created
+  /pets/{petId}:
+    parameters:
+    - name: petId
+      in: path
+      required: true
+      schema:
+        type: string
+    get:
+      operationId: getPet
+      tags:
+      - pets
+      security:
+      - apiKey: []
+      responses:
+        '200':
+          description: A pet
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Pet'
+        '404':
+          description: Not found
+        4XX:
+          description: Client error
+        default:
+          description: Error
+components:
+  schemas:
+    Pet:
+      type: object
+      required:
+      - name
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+  securitySchemes:
+    apiKey:
+      type: apiKey
+      name: X-API-Key
+      in: header
+tags:
+- name: pets

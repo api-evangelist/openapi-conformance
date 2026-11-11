@@ -1,0 +1,6 @@
+# vacuum's recommended ruleset with the two error-severity STYLE rules turned off: the spec makes
+# info.description and operationId optional, so neither may fail a valid document.
+extends: [[vacuum:oas, recommended]]
+rules:
+  info-description: off
+  operation-operationId: off

@@ -1,0 +1,79 @@
+# The tools under test. {f} = the case file, {schema} = the official schema directory for the case's version,
+# schema-check.mjs and parser-validate.mjs are copied into {node} by run.py so they resolve their packages there.
+# {nb} = node_modules/.bin, {node} = the node tools dir, {py} = the python venv bin, {go} = the go bin dir, {suite} = this repo.
+# role: validates = says valid/invalid; lints = a linter, judged on its error-severity results only.
+# A tool's verdict is its exit code: 0 = valid, non-zero = invalid, unless an `error` pattern says it crashed instead,
+# or an `unsupported` pattern says it declined the document's OpenAPI version (scored apart, never as a pass or a fail).
+# One OAI case (security-scheme-object-examples) $refs https://example.com/api/openapi.json, which 404s. A tool that
+# fails to fetch an external document has not judged the case, so for every tool this pattern means `error`, not a verdict.
+fetch_error: 'HTTP ERROR 404|404 Not Found|disallowed external reference|only internal refs are supported'
+tools:
+  - id: oai-schema
+    name: Official OAI JSON Schema (hyperjump)
+    repo: https://github.com/OAI/OpenAPI-Specification
+    role: reference
+    version_cmd: "cat {suite}/cases/oai/SOURCE"
+    cmd: "node {node}/schema-check.mjs {schema} {f}"
+  - id: spectral
+    name: Spectral (spectral:oas)
+    repo: https://github.com/stoplightio/spectral
+    role: lints
+    version_cmd: "{nb}/spectral --version"
+    cmd: "{nb}/spectral lint -r {suite}/rulesets/spectral-oas.yaml -F error {f}"
+    unsupported: 'unrecognized-format|No ruleset has been found|does not match any of the supported formats'
+    notes: "Detects an undefined security scheme (oas3-operation-security-defined) at warning severity, which errors-only scoring counts as a miss."
+  - id: redocly
+    name: Redocly CLI lint (spec ruleset)
+    repo: https://github.com/Redocly/redocly-cli
+    role: lints
+    version_cmd: "{nb}/redocly --version"
+    cmd: "{nb}/redocly lint --extends=spec --format=stylish {f}"
+    unsupported: 'Unsupported OpenAPI version'
+  - id: vacuum
+    name: vacuum lint
+    repo: https://github.com/daveshanley/vacuum
+    role: lints
+    version_cmd: "{go}/vacuum version"
+    cmd: "{go}/vacuum lint -r {suite}/rulesets/vacuum-oas.yaml -n error --min-score 0 -b -d {f}"
+  - id: swagger-parser
+    name: "@apidevtools/swagger-parser"
+    repo: https://github.com/APIDevTools/swagger-parser
+    role: validates
+    version_cmd: "node -p \"require('{node}/node_modules/@apidevtools/swagger-parser/package.json').version\""
+    cmd: "node {node}/parser-validate.mjs @apidevtools/swagger-parser {f}"
+    unsupported: 'Unsupported OpenAPI version'
+  - id: readme-openapi-parser
+    name: "@readme/openapi-parser"
+    repo: https://github.com/readmeio/oas/tree/main/packages/parser
+    role: validates
+    version_cmd: "node -p \"require('{node}/node_modules/@readme/openapi-parser/package.json').version\""
+    cmd: "node {node}/parser-validate.mjs @readme/openapi-parser {f}"
+    unsupported: 'is currently unsupported|Unsupported OpenAPI version'
+  - id: seriousme
+    name: "@seriousme/openapi-schema-validator"
+    repo: https://github.com/seriousme/openapi-schema-validator
+    role: validates
+    version_cmd: "node -p \"require('{node}/node_modules/@seriousme/openapi-schema-validator/package.json').version\""
+    cmd: "{nb}/validate-api {f}"
+    unsupported: 'Unsupported specification version|not supported'
+  - id: openapi-spec-validator
+    name: openapi-spec-validator (Python)
+    repo: https://github.com/python-openapi/openapi-spec-validator
+    role: validates
+    version_cmd: "{py}/pip show openapi-spec-validator | grep Version"
+    cmd: "{py}/openapi-spec-validator --validation-errors all {f}"
+    error: 'Traceback'
+    unsupported: 'Unsupported (spec|OpenAPI) version|could not detect|Spec schema version not detected'
+  - id: kin-openapi
+    name: kin-openapi (Go, cmd/validate)
+    repo: https://github.com/getkin/kin-openapi
+    role: validates
+    version_cmd: "cd {go}/.. && go version -m {go}/validate | grep kin-openapi | head -1"
+    cmd: "{go}/validate {f}"
+  - id: speakeasy-openapi
+    name: Speakeasy openapi CLI (spec validate)
+    repo: https://github.com/speakeasy-api/openapi
+    role: validates
+    version_cmd: "{go}/openapi --version"
+    cmd: "{go}/openapi spec validate {f}"
+    unsupported: 'validation-supported-version|unsupported version'

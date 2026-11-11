@@ -1,0 +1,253 @@
+cases:
+- id: ae-3.1.1-valid-base
+  file: valid-base.openapi.yaml
+  version: 3.1.1
+  expect: valid
+  level: schema
+  rule: 'the base document: paths, path-level parameter, request body, $refs, security, tags'
+  spec: https://spec.openapis.org/oas/v3.1.1.html#openapi-object
+- id: ae-3.1.1-valid-response-range
+  file: valid-response-range.openapi.yaml
+  version: 3.1.1
+  expect: valid
+  level: schema
+  rule: a response code may be a range like 4XX, and default is allowed
+  spec: https://spec.openapis.org/oas/v3.1.1.html#responses-object
+- id: ae-3.1.1-valid-extensions
+  file: valid-extensions.openapi.yaml
+  version: 3.1.1
+  expect: valid
+  level: schema
+  rule: x- specification extensions are allowed on most objects
+  spec: https://spec.openapis.org/oas/v3.1.1.html#specification-extensions
+- id: ae-3.1.1-valid-undeclared-operation-tag
+  file: valid-undeclared-operation-tag.openapi.yaml
+  version: 3.1.1
+  expect: valid
+  level: semantic
+  rule: an operation may use a tag the top-level tags list does not declare
+  spec: https://spec.openapis.org/oas/v3.1.1.html#tag-object
+- id: ae-3.1.1-valid-path-template-different-literal
+  file: valid-path-template-different-literal.openapi.yaml
+  version: 3.1.1
+  expect: valid
+  level: semantic
+  rule: paths that differ in a literal segment are distinct (/pets/{petId} and /pets/mine)
+  spec: https://spec.openapis.org/oas/v3.1.1.html#paths-object
+- id: ae-3.1.1-valid-no-responses
+  file: valid-no-responses.openapi.yaml
+  version: 3.1.1
+  expect: valid
+  level: schema
+  rule: from 3.1 an operation may omit responses
+  spec: https://spec.openapis.org/oas/v3.1.1.html#operation-object
+- id: ae-3.1.1-valid-webhooks-only
+  file: valid-webhooks-only.openapi.yaml
+  version: 3.1.1
+  expect: valid
+  level: schema
+  rule: from 3.1 a document may have webhooks and no paths
+  spec: https://spec.openapis.org/oas/v3.1.1.html#openapi-object
+- id: ae-3.1.1-valid-type-array-null
+  file: valid-type-array-null.openapi.yaml
+  version: 3.1.1
+  expect: valid
+  level: schema
+  rule: from 3.1 a schema type may be an array including "null"
+  spec: https://spec.openapis.org/oas/v3.1.1.html#schema-object
+- id: ae-3.1.1-valid-license-identifier
+  file: valid-license-identifier.openapi.yaml
+  version: 3.1.1
+  expect: valid
+  level: schema
+  rule: from 3.1 license may carry an SPDX identifier
+  spec: https://spec.openapis.org/oas/v3.1.1.html#license-object
+- id: ae-3.1.1-valid-path-item-ref-component
+  file: valid-path-item-ref-component.openapi.yaml
+  version: 3.1.1
+  expect: valid
+  level: schema
+  rule: from 3.1 components may hold pathItems
+  spec: https://spec.openapis.org/oas/v3.1.1.html#components-object
+- id: ae-3.1.1-invalid-missing-info
+  file: invalid-missing-info.openapi.yaml
+  version: 3.1.1
+  expect: invalid
+  level: schema
+  rule: info is required
+  spec: https://spec.openapis.org/oas/v3.1.1.html#openapi-object
+- id: ae-3.1.1-invalid-missing-info-version
+  file: invalid-missing-info-version.openapi.yaml
+  version: 3.1.1
+  expect: invalid
+  level: schema
+  rule: info.version is required
+  spec: https://spec.openapis.org/oas/v3.1.1.html#info-object
+- id: ae-3.1.1-invalid-openapi-version
+  file: invalid-openapi-version.openapi.yaml
+  version: 3.1.1
+  expect: invalid
+  level: schema
+  rule: the openapi field must be a full major.minor.patch version of this line
+  spec: https://spec.openapis.org/oas/v3.1.1.html#openapi-object
+- id: ae-3.1.1-invalid-path-no-leading-slash
+  file: invalid-path-no-leading-slash.openapi.yaml
+  version: 3.1.1
+  expect: invalid
+  level: schema
+  rule: path keys must begin with a slash
+  spec: https://spec.openapis.org/oas/v3.1.1.html#paths-object
+- id: ae-3.1.1-invalid-response-code
+  file: invalid-response-code.openapi.yaml
+  version: 3.1.1
+  expect: invalid
+  level: schema
+  rule: response keys are HTTP status codes, ranges like 2XX, or default
+  spec: https://spec.openapis.org/oas/v3.1.1.html#responses-object
+- id: ae-3.1.1-invalid-response-no-description
+  file: invalid-response-no-description.openapi.yaml
+  version: 3.1.1
+  expect: invalid
+  level: schema
+  rule: a Response Object requires description (before 3.2)
+  spec: https://spec.openapis.org/oas/v3.1.1.html#response-object
+- id: ae-3.1.1-invalid-path-param-not-required
+  file: invalid-path-param-not-required.openapi.yaml
+  version: 3.1.1
+  expect: invalid
+  level: schema
+  rule: 'a path parameter must have required: true'
+  spec: https://spec.openapis.org/oas/v3.1.1.html#parameter-object
+- id: ae-3.1.1-invalid-parameter-in
+  file: invalid-parameter-in.openapi.yaml
+  version: 3.1.1
+  expect: invalid
+  level: schema
+  rule: parameter in must be query, header, path or cookie
+  spec: https://spec.openapis.org/oas/v3.1.1.html#parameter-object
+- id: ae-3.1.1-invalid-parameter-schema-and-content
+  file: invalid-parameter-schema-and-content.openapi.yaml
+  version: 3.1.1
+  expect: invalid
+  level: schema
+  rule: a parameter has schema or content, not both
+  spec: https://spec.openapis.org/oas/v3.1.1.html#parameter-object
+- id: ae-3.1.1-invalid-security-scheme-type
+  file: invalid-security-scheme-type.openapi.yaml
+  version: 3.1.1
+  expect: invalid
+  level: schema
+  rule: security scheme type must be one of the defined types
+  spec: https://spec.openapis.org/oas/v3.1.1.html#security-scheme-object
+- id: ae-3.1.1-invalid-oauth2-no-flows
+  file: invalid-oauth2-no-flows.openapi.yaml
+  version: 3.1.1
+  expect: invalid
+  level: schema
+  rule: an oauth2 security scheme requires flows
+  spec: https://spec.openapis.org/oas/v3.1.1.html#security-scheme-object
+- id: ae-3.1.1-invalid-component-key
+  file: invalid-component-key.openapi.yaml
+  version: 3.1.1
+  expect: invalid
+  level: schema
+  rule: component keys must match ^[a-zA-Z0-9.\-_]+$
+  spec: https://spec.openapis.org/oas/v3.1.1.html#components-object
+- id: ae-3.1.1-invalid-unknown-root-field
+  file: invalid-unknown-root-field.openapi.yaml
+  version: 3.1.1
+  expect: invalid
+  level: schema
+  rule: the OpenAPI Object allows no fields beyond the spec and x- extensions
+  spec: https://spec.openapis.org/oas/v3.1.1.html#openapi-object
+- id: ae-3.1.1-invalid-schema-type
+  file: invalid-schema-type.openapi.yaml
+  version: 3.1.1
+  expect: invalid
+  level: schema
+  rule: a Schema Object type must be a JSON Schema type name
+  spec: https://spec.openapis.org/oas/v3.1.1.html#schema-object
+- id: ae-3.1.1-invalid-empty-document-3-1
+  file: invalid-empty-document-3-1.openapi.yaml
+  version: 3.1.1
+  expect: invalid
+  level: schema
+  rule: from 3.1 a document needs at least one of paths, components or webhooks
+  spec: https://spec.openapis.org/oas/v3.1.1.html#openapi-object
+- id: ae-3.1.1-invalid-query-method-before-3-2
+  file: invalid-query-method-before-3-2.openapi.yaml
+  version: 3.1.1
+  expect: invalid
+  level: schema
+  rule: the query operation does not exist before 3.2
+  spec: https://spec.openapis.org/oas/v3.1.1.html#path-item-object
+- id: ae-3.1.1-invalid-duplicate-operation-id
+  file: invalid-duplicate-operation-id.openapi.yaml
+  version: 3.1.1
+  expect: invalid
+  level: semantic
+  rule: operationId must be unique among all operations
+  spec: https://spec.openapis.org/oas/v3.1.1.html#operation-object
+- id: ae-3.1.1-invalid-undeclared-path-param
+  file: invalid-undeclared-path-param.openapi.yaml
+  version: 3.1.1
+  expect: invalid
+  level: semantic
+  rule: every template expression in a path must have a matching path parameter
+  spec: https://spec.openapis.org/oas/v3.1.1.html#path-templating
+- id: ae-3.1.1-invalid-path-param-not-in-template
+  file: invalid-path-param-not-in-template.openapi.yaml
+  version: 3.1.1
+  expect: invalid
+  level: semantic
+  rule: a path parameter must correspond to a template expression in the path
+  spec: https://spec.openapis.org/oas/v3.1.1.html#parameter-object
+- id: ae-3.1.1-invalid-duplicate-parameter
+  file: invalid-duplicate-parameter.openapi.yaml
+  version: 3.1.1
+  expect: invalid
+  level: semantic
+  rule: a parameter list must not hold two parameters with the same name and location
+  spec: https://spec.openapis.org/oas/v3.1.1.html#operation-object
+- id: ae-3.1.1-invalid-equivalent-templated-paths
+  file: invalid-equivalent-templated-paths.openapi.yaml
+  version: 3.1.1
+  expect: invalid
+  level: semantic
+  rule: templated paths with the same hierarchy but different names are identical and must not both exist
+  spec: https://spec.openapis.org/oas/v3.1.1.html#paths-object
+- id: ae-3.1.1-invalid-unresolved-ref
+  file: invalid-unresolved-ref.openapi.yaml
+  version: 3.1.1
+  expect: invalid
+  level: semantic
+  rule: a $ref must resolve
+  spec: https://spec.openapis.org/oas/v3.1.1.html#reference-object
+- id: ae-3.1.1-invalid-undefined-security-scheme
+  file: invalid-undefined-security-scheme.openapi.yaml
+  version: 3.1.1
+  expect: invalid
+  level: semantic
+  rule: a security requirement must name a scheme declared in components
+  spec: https://spec.openapis.org/oas/v3.1.1.html#security-requirement-object
+- id: ae-3.1.1-invalid-duplicate-tag-name
+  file: invalid-duplicate-tag-name.openapi.yaml
+  version: 3.1.1
+  expect: invalid
+  level: semantic
+  rule: tag names must be unique
+  spec: https://spec.openapis.org/oas/v3.1.1.html#openapi-object
+- id: ae-3.1.1-invalid-server-variable-default-not-in-enum
+  file: invalid-server-variable-default-not-in-enum.openapi.yaml
+  version: 3.1.1
+  expect: invalid
+  level: semantic
+  rule: a server variable default must be one of its enum values
+  spec: https://spec.openapis.org/oas/v3.1.1.html#server-variable-object
+- id: ae-3.1.1-invalid-link-unknown-operation
+  file: invalid-link-unknown-operation.openapi.yaml
+  version: 3.1.1
+  expect: invalid
+  level: semantic
+  rule: a link operationId must name an existing operation
+  spec: https://spec.openapis.org/oas/v3.1.1.html#link-object

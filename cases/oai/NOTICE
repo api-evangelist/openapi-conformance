@@ -1,0 +1,4 @@
+cases/oai/<line>/{pass,fail}/ and schemas/ are copied unmodified from the OpenAPI Initiative's
+OpenAPI-Specification repository (tests/schema and src/schemas/validation on the v3.1-dev and v3.2-dev
+branches; schemas/3.0 from _archive_/schemas/v3.0 on main), pinned in cases/oai/SOURCE.
+Copyright The Linux Foundation / OpenAPI Initiative, licensed under the Apache License 2.0.

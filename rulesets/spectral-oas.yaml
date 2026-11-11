@@ -1,0 +1,3 @@
+# Spectral's built-in OpenAPI ruleset. Only error-severity results decide the verdict (-F error), so its
+# style rules (info-contact, operation-description, ...) never fail a valid document.
+extends: [[spectral:oas, recommended]]

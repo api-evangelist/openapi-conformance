@@ -1,0 +1,24 @@
+openapi: 3.0.4
+info:
+  title: Conformance base
+  version: 1.0.0
+servers:
+- url: https://api.example.com/v1
+components:
+  schemas:
+    Pet:
+      type: object
+      required:
+      - name
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+  securitySchemes:
+    apiKey:
+      type: apiKey
+      name: X-API-Key
+      in: header
+tags:
+- name: pets
