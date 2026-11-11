@@ -50,22 +50,17 @@ To add a tool, add an entry to `tools.yml` and run `scripts/run.py --only <id>`,
 ## Running
 
 ```sh
-T=$PWD/.tools
-mkdir -p $T/node && (cd $T/node && npm init -y && npm i @stoplight/spectral-cli @redocly/cli @apidevtools/swagger-parser \
-  @readme/openapi-parser @seriousme/openapi-schema-validator @hyperjump/json-schema@1.18.0 @hyperjump/browser@1.6.0 yaml)
-python3 -m venv $T/py && $T/py/bin/pip install openapi-spec-validator pyyaml
-GOBIN=$T/go go install github.com/daveshanley/vacuum@latest
-GOBIN=$T/go go install github.com/getkin/kin-openapi/cmd/validate@latest
-GOBIN=$T/go go install github.com/speakeasy-api/openapi/cmd/openapi@latest
-$T/py/bin/python scripts/build-ae-cases.py      # only after editing the cases
-$T/py/bin/python scripts/run.py --tools $T      # writes results/<date>.json and docs/data/latest.json
+bash scripts/install-tools.sh .tools            # latest release of every tool; JDK + .NET into .tools if not on PATH
+.tools/py/bin/python scripts/build-ae-cases.py  # only after editing the cases
+.tools/py/bin/python scripts/run.py --tools $PWD/.tools   # writes results/<date>.json and docs/data/latest.json
 python3 scripts/summary.py                      # per-tool, per-version scores in the terminal
 ```
 
+`.github/workflows/conformance.yml` does the same every day at 06:30 UTC on the latest release of every tool and
+commits the results to `main`, which Pages serves. Run it by hand from the Actions tab.
+
 ## Not yet covered
 
-- Java and .NET: openapi-generator `validate` / swagger-parser (Java), Microsoft.OpenApi (`hidi`). They need a JVM
-  and the .NET SDK on the runner.
 - libopenapi directly (vacuum is built on it), oas-kit (3.0 only), Rust `oas3`.
 - AE semantic cases for discriminator mappings, callbacks and `$self`-relative references.
 

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Run every tool in tools.yml against every case and write results/<date>.json + docs/data/latest.json.
 Usage: run.py [--tools TOOLDIR] [--only id,id] [--date YYYY-MM-DD]
-TOOLDIR holds node/ (npm installs), py/ (venv) and go/ (go install bin). See README for the install lines."""
+TOOLDIR holds node/ (npm installs), py/ (venv), go/ (go install bin), jdk/ + openapi-generator-cli.jar, dotnet/ + dotnet-tools/. See README for the install lines."""
 import datetime, glob, json, os, re, shutil, subprocess, sys, yaml
 
 # Released OpenAPI versions. Declining a document that claims any other version is the right answer: it is invalid.
@@ -46,6 +46,10 @@ def main():
         elif k == '--date': date = a.pop(0)
         elif k == '--tools': tooldir = a.pop(0)
     env = {'suite': SUITE, 'node': f'{tooldir}/node', 'nb': f'{tooldir}/node/node_modules/.bin', 'py': f'{tooldir}/py/bin', 'go': f'{tooldir}/go'}
+    # The JDK unpacks to jdk/bin on Linux and jdk/Contents/Home/bin on macOS; .NET tools need DOTNET_ROOT.
+    env['java'] = next((j for j in (f'{tooldir}/jdk/bin/java', f'{tooldir}/jdk/Contents/Home/bin/java') if os.path.exists(j)), 'java')
+    env['tools'] = tooldir
+    if os.path.isdir(f'{tooldir}/dotnet'): os.environ['DOTNET_ROOT'] = f'{tooldir}/dotnet'
     for f in ('schema-check.mjs', 'parser-validate.mjs'): shutil.copy(f'{SUITE}/scripts/{f}', env['node'])
     manifest = yaml.safe_load(open(f'{SUITE}/tools.yml'))
     tools = [t for t in manifest['tools'] if not only or t['id'] in only]

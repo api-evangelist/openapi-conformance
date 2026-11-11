@@ -1,6 +1,7 @@
 # The tools under test. {f} = the case file, {schema} = the official schema directory for the case's version,
 # schema-check.mjs and parser-validate.mjs are copied into {node} by run.py so they resolve their packages there.
-# {nb} = node_modules/.bin, {node} = the node tools dir, {py} = the python venv bin, {go} = the go bin dir, {suite} = this repo.
+# {nb} = node_modules/.bin, {node} = the node tools dir, {py} = the python venv bin, {go} = the go bin dir, {suite} = this repo,
+# {java} = the JDK's java, {tools} = the tools dir (openapi-generator-cli.jar, dotnet-tools/).
 # role: validates = says valid/invalid; lints = a linter, judged on its error-severity results only.
 # A tool's verdict is its exit code: 0 = valid, non-zero = invalid, unless an `error` pattern says it crashed instead,
 # or an `unsupported` pattern says it declined the document's OpenAPI version (scored apart, never as a pass or a fail).
@@ -77,3 +78,18 @@ tools:
     version_cmd: "{go}/openapi --version"
     cmd: "{go}/openapi spec validate {f}"
     unsupported: 'validation-supported-version|unsupported version'
+  - id: openapi-generator
+    name: openapi-generator validate (Java, swagger-parser)
+    repo: https://github.com/OpenAPITools/openapi-generator
+    role: validates
+    version_cmd: "{java} -jar {tools}/openapi-generator-cli.jar version"
+    cmd: "{java} -jar {tools}/openapi-generator-cli.jar validate -i {f}"
+    # An openapi version it does not recognise falls through to the Swagger 1.x converter, which fails to parse it.
+    unsupported: 'SwaggerCompatConverter - failed to read resource listing'
+    notes: "Built on swagger-parser (Java), which also powers the generator's SDK output. It does not recognise 3.2: the document falls through to its Swagger 1.x converter and fails to parse, so 3.2 is scored as declined."
+  - id: hidi
+    name: Microsoft OpenAPI.NET (hidi validate)
+    repo: https://github.com/microsoft/OpenAPI.NET
+    role: validates
+    version_cmd: "{tools}/dotnet-tools/hidi --version"
+    cmd: "{tools}/dotnet-tools/hidi validate -d {f}"
