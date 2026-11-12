@@ -1,3 +1,4 @@
-3.1 v3.1-dev ef5916de74d7f2e946944409f0d942edd04d106f
-3.2 v3.2-dev f28506252b573b9e01db1c0c332c730d1eb7c73d
-3.0 main 4f86429f134f7e48b6351563549b4502fc69de52 _archive_/schemas/v3.0/schema.yaml (schema only; the OAI publishes no 3.0 tests)
+3.1 v3.1-dev 642ee90575f60233302ad3e82f9de83e02996532
+3.2 v3.2-dev 6d86f6560681d0c461cd06b3faa80814aa120fda
+3.3 v3.3-dev 0c9aaef2ee5efeb508510c482bcfee77ee79716c
+3.0 main 4f86429f134f7e48b6351563549b4502fc69de52 _archive_/schemas/v3.0 (schema + pass examples; the OAI keeps no 3.0 fail tests)

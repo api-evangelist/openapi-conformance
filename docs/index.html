@@ -68,12 +68,12 @@ fetch('data/latest.json').then(r => r.json()).then(d => {
     const rows = versions.map(v => {
       const rs = d.results.filter(r => r.tool === t && line(r.version) === v);
       const unsup = rs.filter(r => r.verdict === 'unsupported').length;
-      if (unsup > rs.length / 2) return `<div class="row"><span>OpenAPI ${v}</span><span class="muted">version not supported</span></div>`;
+      if (unsup > rs.length / 2) return `<div class="row"><span>OpenAPI ${v}${v === '3.3' ? ' <span class="tag">draft</span>' : ''}</span><span class="muted">version not supported</span></div>`;
       const run = rs.filter(r => r.verdict !== 'unsupported');
       const part = lvl => { const x = run.filter(r => r.level === lvl); return x.length ? `${lvl} <b>${x.filter(r => r.pass).length}/${x.length}</b>` : ''; };
       const val = run.filter(r => r.expect === 'valid'), inv = run.filter(r => r.expect === 'invalid');
       const unclaimed = m.claims && m.claims.length && !m.claims.map(String).includes(v) ? ' <span class="tag">not claimed</span>' : '';
-      return `<div class="row"><span>OpenAPI ${v}${unclaimed}</span><b>${run.filter(r => r.pass).length}/${run.length}</b></div>
+      return `<div class="row"><span>OpenAPI ${v}${v === '3.3' ? ' <span class="tag">draft</span>' : ''}${unclaimed}</span><b>${run.filter(r => r.pass).length}/${run.length}</b></div>
         <div class="row muted"><span>accepts valid <b>${val.filter(r => r.pass).length}/${val.length}</b></span><span>rejects invalid <b>${inv.filter(r => r.pass).length}/${inv.length}</b></span></div>
         <div class="row muted"><span>${part('schema')}</span><span>${part('semantic')}</span></div>`;
     }).join('');

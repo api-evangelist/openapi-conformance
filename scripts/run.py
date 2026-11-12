@@ -6,6 +6,9 @@ import datetime, glob, json, os, re, shutil, subprocess, sys, yaml
 
 # Released OpenAPI versions. Declining a document that claims any other version is the right answer: it is invalid.
 RELEASED = {'3.0.0', '3.0.1', '3.0.2', '3.0.3', '3.0.4', '3.1.0', '3.1.1', '3.1.2', '3.2.0'}
+# Draft lines (the OAI's tests for the next version, on its v<line>-dev branch). No tool owes support for a draft,
+# so declining any of its cases is scored apart as unsupported, never as a right or wrong verdict.
+DRAFT = ('3.3.',)
 SUITE = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 
 def load_cases():
@@ -69,7 +72,7 @@ def main():
             elif t.get('error') and re.search(t['error'], out): verdict = 'error'
             elif code != 0 and manifest.get('fetch_error') and re.search(manifest['fetch_error'], out): verdict = 'error'
             elif t.get('unsupported') and re.search(t['unsupported'], out):
-                verdict = 'unsupported' if c.get('declared') in RELEASED else 'invalid'
+                verdict = 'unsupported' if c.get('declared') in RELEASED or c['version'].startswith(DRAFT) else 'invalid'
             else: verdict = 'valid' if code == 0 else 'invalid'
             rows.append({'tool': t['id'], 'case': c['id'], 'suite': c['suite'], 'version': c['version'], 'level': c['level'], 'expect': c['expect'],
                          'verdict': verdict, 'pass': verdict == c['expect'], 'exit': code, 'tail': out.replace(SUITE, '.')[-600:]})

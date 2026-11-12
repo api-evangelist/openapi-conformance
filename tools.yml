@@ -5,6 +5,8 @@
 # role: validates = says valid/invalid; lints = a linter, judged on its error-severity results only.
 # A tool's verdict is its exit code: 0 = valid, non-zero = invalid, unless an `error` pattern says it crashed instead,
 # or an `unsupported` pattern says it declined the document's OpenAPI version (scored apart, never as a pass or a fail).
+# Spectral, vacuum and the ReadMe parser decline a version they do not know by falling back to the 3.0 schema's
+# `openapi` pattern (^3.0.x), so that message is their decline.
 # One OAI case (security-scheme-object-examples) $refs https://example.com/api/openapi.json, which 404s. A tool that
 # fails to fetch an external document has not judged the case, so for every tool this pattern means `error`, not a verdict.
 fetch_error: 'HTTP ERROR 404|404 Not Found|disallowed external reference|only internal refs are supported'
@@ -23,6 +25,7 @@ tools:
     cmd: "{nb}/spectral lint -r {suite}/rulesets/spectral-oas.yaml -F error {f}"
     unsupported: 'unrecognized-format|No ruleset has been found|does not match any of the supported formats'
     notes: "Detects an undefined security scheme (oas3-operation-security-defined) at warning severity, which errors-only scoring counts as a miss."
+    unsupported: 'unrecognized-format|No ruleset has been found|does not match any of the supported formats|match pattern .{0,3}\^3\\+\.0'
   - id: redocly
     name: Redocly CLI lint (spec ruleset)
     repo: https://github.com/Redocly/redocly-cli
@@ -35,7 +38,8 @@ tools:
     repo: https://github.com/daveshanley/vacuum
     role: lints
     version_cmd: "{go}/vacuum version"
-    cmd: "{go}/vacuum lint -r {suite}/rulesets/vacuum-oas.yaml -n error --min-score 0 -b -d {f}"
+    cmd: "{go}/vacuum lint -r {suite}/rulesets/vacuum-oas.yaml -n error --min-score 0 -b -q --format stylish {f}"
+    unsupported: 'match pattern .{0,3}\^3\\+\.0'
   - id: swagger-parser
     name: "@apidevtools/swagger-parser"
     repo: https://github.com/APIDevTools/swagger-parser
@@ -49,14 +53,14 @@ tools:
     role: validates
     version_cmd: "node -p \"require('{node}/node_modules/@readme/openapi-parser/package.json').version\""
     cmd: "node {node}/parser-validate.mjs @readme/openapi-parser {f}"
-    unsupported: 'is currently unsupported|Unsupported OpenAPI version'
+    unsupported: 'is currently unsupported|Unsupported OpenAPI version|match pattern .{0,3}\^3\\+\.0'
   - id: seriousme
     name: "@seriousme/openapi-schema-validator"
     repo: https://github.com/seriousme/openapi-schema-validator
     role: validates
     version_cmd: "node -p \"require('{node}/node_modules/@seriousme/openapi-schema-validator/package.json').version\""
     cmd: "{nb}/validate-api {f}"
-    unsupported: 'Unsupported specification version|not supported'
+    unsupported: 'Unsupported specification version|not supported|Cannot find supported'
   - id: openapi-spec-validator
     name: openapi-spec-validator (Python)
     repo: https://github.com/python-openapi/openapi-spec-validator
@@ -64,7 +68,7 @@ tools:
     version_cmd: "{py}/pip show openapi-spec-validator | grep Version"
     cmd: "{py}/openapi-spec-validator --validation-errors all {f}"
     error: 'Traceback'
-    unsupported: 'Unsupported (spec|OpenAPI) version|could not detect|Spec schema version not detected'
+    unsupported: 'Unsupported (spec|OpenAPI) version|could not detect|Spec schema version not detected|yaml: Error: *(\n|$)'
   - id: kin-openapi
     name: kin-openapi (Go, cmd/validate)
     repo: https://github.com/getkin/kin-openapi
@@ -93,3 +97,4 @@ tools:
     role: validates
     version_cmd: "{tools}/dotnet-tools/hidi --version"
     cmd: "{tools}/dotnet-tools/hidi validate -d {f}"
+    unsupported: 'is not supported'
