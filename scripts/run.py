@@ -13,7 +13,7 @@ def load_cases():
     for m in sorted(glob.glob(f'{SUITE}/cases/ae/*/manifest.yml')):
         d = os.path.dirname(m)
         for c in yaml.safe_load(open(m))['cases']:
-            cases.append(dict(c, suite='ae', path=os.path.join(d, c['file'])))
+            cases.append(dict(c, suite='ae', path=os.path.join(d, c['file']), file=os.path.relpath(os.path.join(d, c['file']), SUITE)))
     # OAI's own schema tests: pass/ = valid, fail/ = invalid, decided by schema-base.yaml. The folder is the
     # minor line (3.1, 3.2); the case's version is what its openapi field declares.
     for f in sorted(glob.glob(f'{SUITE}/cases/oai/*/*/*.yaml')):

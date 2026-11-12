@@ -95,7 +95,7 @@
    "expect": "valid",
    "rule": "the base document: paths, path-level parameter, request body, $refs, security, tags",
    "spec": "https://spec.openapis.org/oas/v3.0.4.html#openapi-object",
-   "file": "valid-base.openapi.yaml"
+   "file": "cases/ae/3.0.4/valid-base.openapi.yaml"
   },
   {
    "id": "ae-3.0.4-valid-response-range",
@@ -105,7 +105,7 @@
    "expect": "valid",
    "rule": "a response code may be a range like 4XX, and default is allowed",
    "spec": "https://spec.openapis.org/oas/v3.0.4.html#responses-object",
-   "file": "valid-response-range.openapi.yaml"
+   "file": "cases/ae/3.0.4/valid-response-range.openapi.yaml"
   },
   {
    "id": "ae-3.0.4-valid-extensions",
@@ -115,7 +115,7 @@
    "expect": "valid",
    "rule": "x- specification extensions are allowed on most objects",
    "spec": "https://spec.openapis.org/oas/v3.0.4.html#specification-extensions",
-   "file": "valid-extensions.openapi.yaml"
+   "file": "cases/ae/3.0.4/valid-extensions.openapi.yaml"
   },
   {
    "id": "ae-3.0.4-valid-undeclared-operation-tag",
@@ -125,7 +125,7 @@
    "expect": "valid",
    "rule": "an operation may use a tag the top-level tags list does not declare",
    "spec": "https://spec.openapis.org/oas/v3.0.4.html#tag-object",
-   "file": "valid-undeclared-operation-tag.openapi.yaml"
+   "file": "cases/ae/3.0.4/valid-undeclared-operation-tag.openapi.yaml"
   },
   {
    "id": "ae-3.0.4-valid-path-template-different-literal",
@@ -135,7 +135,7 @@
    "expect": "valid",
    "rule": "paths that differ in a literal segment are distinct (/pets/{petId} and /pets/mine)",
    "spec": "https://spec.openapis.org/oas/v3.0.4.html#paths-object",
-   "file": "valid-path-template-different-literal.openapi.yaml"
+   "file": "cases/ae/3.0.4/valid-path-template-different-literal.openapi.yaml"
   },
   {
    "id": "ae-3.0.4-valid-nullable",
@@ -145,7 +145,7 @@
    "expect": "valid",
    "rule": "in 3.0 a schema may be nullable",
    "spec": "https://spec.openapis.org/oas/v3.0.4.html#schema-object",
-   "file": "valid-nullable.openapi.yaml"
+   "file": "cases/ae/3.0.4/valid-nullable.openapi.yaml"
   },
   {
    "id": "ae-3.0.4-invalid-missing-info",
@@ -155,7 +155,7 @@
    "expect": "invalid",
    "rule": "info is required",
    "spec": "https://spec.openapis.org/oas/v3.0.4.html#openapi-object",
-   "file": "invalid-missing-info.openapi.yaml"
+   "file": "cases/ae/3.0.4/invalid-missing-info.openapi.yaml"
   },
   {
    "id": "ae-3.0.4-invalid-missing-info-version",
@@ -165,7 +165,7 @@
    "expect": "invalid",
    "rule": "info.version is required",
    "spec": "https://spec.openapis.org/oas/v3.0.4.html#info-object",
-   "file": "invalid-missing-info-version.openapi.yaml"
+   "file": "cases/ae/3.0.4/invalid-missing-info-version.openapi.yaml"
   },
   {
    "id": "ae-3.0.4-invalid-openapi-version",
@@ -175,7 +175,7 @@
    "expect": "invalid",
    "rule": "the openapi field must be a full major.minor.patch version of this line",
    "spec": "https://spec.openapis.org/oas/v3.0.4.html#openapi-object",
-   "file": "invalid-openapi-version.openapi.yaml"
+   "file": "cases/ae/3.0.4/invalid-openapi-version.openapi.yaml"
   },
   {
    "id": "ae-3.0.4-invalid-path-no-leading-slash",
@@ -185,7 +185,7 @@
    "expect": "invalid",
    "rule": "path keys must begin with a slash",
    "spec": "https://spec.openapis.org/oas/v3.0.4.html#paths-object",
-   "file": "invalid-path-no-leading-slash.openapi.yaml"
+   "file": "cases/ae/3.0.4/invalid-path-no-leading-slash.openapi.yaml"
   },
   {
    "id": "ae-3.0.4-invalid-response-code",
@@ -195,7 +195,7 @@
    "expect": "invalid",
    "rule": "response keys are HTTP status codes, ranges like 2XX, or default",
    "spec": "https://spec.openapis.org/oas/v3.0.4.html#responses-object",
-   "file": "invalid-response-code.openapi.yaml"
+   "file": "cases/ae/3.0.4/invalid-response-code.openapi.yaml"
   },
   {
    "id": "ae-3.0.4-invalid-response-no-description",
@@ -205,7 +205,7 @@
    "expect": "invalid",
    "rule": "a Response Object requires description (before 3.2)",
    "spec": "https://spec.openapis.org/oas/v3.0.4.html#response-object",
-   "file": "invalid-response-no-description.openapi.yaml"
+   "file": "cases/ae/3.0.4/invalid-response-no-description.openapi.yaml"
   },
   {
    "id": "ae-3.0.4-invalid-path-param-not-required",
@@ -215,7 +215,7 @@
    "expect": "invalid",
    "rule": "a path parameter must have required: true",
    "spec": "https://spec.openapis.org/oas/v3.0.4.html#parameter-object",
-   "file": "invalid-path-param-not-required.openapi.yaml"
+   "file": "cases/ae/3.0.4/invalid-path-param-not-required.openapi.yaml"
   },
   {
    "id": "ae-3.0.4-invalid-parameter-in",
@@ -225,7 +225,7 @@
    "expect": "invalid",
    "rule": "parameter in must be query, header, path or cookie",
    "spec": "https://spec.openapis.org/oas/v3.0.4.html#parameter-object",
-   "file": "invalid-parameter-in.openapi.yaml"
+   "file": "cases/ae/3.0.4/invalid-parameter-in.openapi.yaml"
   },
   {
    "id": "ae-3.0.4-invalid-parameter-schema-and-content",
@@ -235,7 +235,7 @@
    "expect": "invalid",
    "rule": "a parameter has schema or content, not both",
    "spec": "https://spec.openapis.org/oas/v3.0.4.html#parameter-object",
-   "file": "invalid-parameter-schema-and-content.openapi.yaml"
+   "file": "cases/ae/3.0.4/invalid-parameter-schema-and-content.openapi.yaml"
   },
   {
    "id": "ae-3.0.4-invalid-security-scheme-type",
@@ -245,7 +245,7 @@
    "expect": "invalid",
    "rule": "security scheme type must be one of the defined types",
    "spec": "https://spec.openapis.org/oas/v3.0.4.html#security-scheme-object",
-   "file": "invalid-security-scheme-type.openapi.yaml"
+   "file": "cases/ae/3.0.4/invalid-security-scheme-type.openapi.yaml"
   },
   {
    "id": "ae-3.0.4-invalid-oauth2-no-flows",
@@ -255,7 +255,7 @@
    "expect": "invalid",
    "rule": "an oauth2 security scheme requires flows",
    "spec": "https://spec.openapis.org/oas/v3.0.4.html#security-scheme-object",
-   "file": "invalid-oauth2-no-flows.openapi.yaml"
+   "file": "cases/ae/3.0.4/invalid-oauth2-no-flows.openapi.yaml"
   },
   {
    "id": "ae-3.0.4-invalid-component-key",
@@ -265,7 +265,7 @@
    "expect": "invalid",
    "rule": "component keys must match ^[a-zA-Z0-9.\\-_]+$",
    "spec": "https://spec.openapis.org/oas/v3.0.4.html#components-object",
-   "file": "invalid-component-key.openapi.yaml",
+   "file": "cases/ae/3.0.4/invalid-component-key.openapi.yaml",
    "note": "The spec states the key pattern; the official 3.0 schema lists it as patternProperties without forbidding other keys, so for 3.0 only a validator catches it."
   },
   {
@@ -276,7 +276,7 @@
    "expect": "invalid",
    "rule": "the OpenAPI Object allows no fields beyond the spec and x- extensions",
    "spec": "https://spec.openapis.org/oas/v3.0.4.html#openapi-object",
-   "file": "invalid-unknown-root-field.openapi.yaml"
+   "file": "cases/ae/3.0.4/invalid-unknown-root-field.openapi.yaml"
   },
   {
    "id": "ae-3.0.4-invalid-schema-type",
@@ -286,7 +286,7 @@
    "expect": "invalid",
    "rule": "a Schema Object type must be a JSON Schema type name",
    "spec": "https://spec.openapis.org/oas/v3.0.4.html#schema-object",
-   "file": "invalid-schema-type.openapi.yaml"
+   "file": "cases/ae/3.0.4/invalid-schema-type.openapi.yaml"
   },
   {
    "id": "ae-3.0.4-invalid-missing-responses",
@@ -296,7 +296,7 @@
    "expect": "invalid",
    "rule": "in 3.0 every operation requires responses",
    "spec": "https://spec.openapis.org/oas/v3.0.4.html#operation-object",
-   "file": "invalid-missing-responses.openapi.yaml"
+   "file": "cases/ae/3.0.4/invalid-missing-responses.openapi.yaml"
   },
   {
    "id": "ae-3.0.4-invalid-webhooks-in-3-0",
@@ -306,7 +306,7 @@
    "expect": "invalid",
    "rule": "webhooks does not exist in 3.0",
    "spec": "https://spec.openapis.org/oas/v3.0.4.html#openapi-object",
-   "file": "invalid-webhooks-in-3-0.openapi.yaml"
+   "file": "cases/ae/3.0.4/invalid-webhooks-in-3-0.openapi.yaml"
   },
   {
    "id": "ae-3.0.4-invalid-type-null-in-3-0",
@@ -316,7 +316,7 @@
    "expect": "invalid",
    "rule": "in 3.0 a schema type cannot be \"null\" or an array",
    "spec": "https://spec.openapis.org/oas/v3.0.4.html#schema-object",
-   "file": "invalid-type-null-in-3-0.openapi.yaml"
+   "file": "cases/ae/3.0.4/invalid-type-null-in-3-0.openapi.yaml"
   },
   {
    "id": "ae-3.0.4-invalid-no-paths-3-0",
@@ -326,7 +326,7 @@
    "expect": "invalid",
    "rule": "in 3.0 paths is required",
    "spec": "https://spec.openapis.org/oas/v3.0.4.html#openapi-object",
-   "file": "invalid-no-paths-3-0.openapi.yaml"
+   "file": "cases/ae/3.0.4/invalid-no-paths-3-0.openapi.yaml"
   },
   {
    "id": "ae-3.0.4-invalid-duplicate-operation-id",
@@ -336,7 +336,7 @@
    "expect": "invalid",
    "rule": "operationId must be unique among all operations",
    "spec": "https://spec.openapis.org/oas/v3.0.4.html#operation-object",
-   "file": "invalid-duplicate-operation-id.openapi.yaml"
+   "file": "cases/ae/3.0.4/invalid-duplicate-operation-id.openapi.yaml"
   },
   {
    "id": "ae-3.0.4-invalid-undeclared-path-param",
@@ -346,7 +346,7 @@
    "expect": "invalid",
    "rule": "every template expression in a path must have a matching path parameter",
    "spec": "https://spec.openapis.org/oas/v3.0.4.html#path-templating",
-   "file": "invalid-undeclared-path-param.openapi.yaml"
+   "file": "cases/ae/3.0.4/invalid-undeclared-path-param.openapi.yaml"
   },
   {
    "id": "ae-3.0.4-invalid-path-param-not-in-template",
@@ -356,7 +356,7 @@
    "expect": "invalid",
    "rule": "a path parameter must correspond to a template expression in the path",
    "spec": "https://spec.openapis.org/oas/v3.0.4.html#parameter-object",
-   "file": "invalid-path-param-not-in-template.openapi.yaml"
+   "file": "cases/ae/3.0.4/invalid-path-param-not-in-template.openapi.yaml"
   },
   {
    "id": "ae-3.0.4-invalid-duplicate-parameter",
@@ -366,7 +366,7 @@
    "expect": "invalid",
    "rule": "a parameter list must not hold two parameters with the same name and location",
    "spec": "https://spec.openapis.org/oas/v3.0.4.html#operation-object",
-   "file": "invalid-duplicate-parameter.openapi.yaml"
+   "file": "cases/ae/3.0.4/invalid-duplicate-parameter.openapi.yaml"
   },
   {
    "id": "ae-3.0.4-invalid-equivalent-templated-paths",
@@ -376,7 +376,7 @@
    "expect": "invalid",
    "rule": "templated paths with the same hierarchy but different names are identical and must not both exist",
    "spec": "https://spec.openapis.org/oas/v3.0.4.html#paths-object",
-   "file": "invalid-equivalent-templated-paths.openapi.yaml"
+   "file": "cases/ae/3.0.4/invalid-equivalent-templated-paths.openapi.yaml"
   },
   {
    "id": "ae-3.0.4-invalid-unresolved-ref",
@@ -386,7 +386,7 @@
    "expect": "invalid",
    "rule": "a $ref must resolve",
    "spec": "https://spec.openapis.org/oas/v3.0.4.html#reference-object",
-   "file": "invalid-unresolved-ref.openapi.yaml"
+   "file": "cases/ae/3.0.4/invalid-unresolved-ref.openapi.yaml"
   },
   {
    "id": "ae-3.0.4-invalid-undefined-security-scheme",
@@ -396,7 +396,7 @@
    "expect": "invalid",
    "rule": "a security requirement must name a scheme declared in components",
    "spec": "https://spec.openapis.org/oas/v3.0.4.html#security-requirement-object",
-   "file": "invalid-undefined-security-scheme.openapi.yaml"
+   "file": "cases/ae/3.0.4/invalid-undefined-security-scheme.openapi.yaml"
   },
   {
    "id": "ae-3.0.4-invalid-duplicate-tag-name",
@@ -406,7 +406,7 @@
    "expect": "invalid",
    "rule": "tag names must be unique",
    "spec": "https://spec.openapis.org/oas/v3.0.4.html#openapi-object",
-   "file": "invalid-duplicate-tag-name.openapi.yaml"
+   "file": "cases/ae/3.0.4/invalid-duplicate-tag-name.openapi.yaml"
   },
   {
    "id": "ae-3.0.4-invalid-server-variable-default-not-in-enum",
@@ -416,7 +416,7 @@
    "expect": "invalid",
    "rule": "a server variable default must be one of its enum values",
    "spec": "https://spec.openapis.org/oas/v3.0.4.html#server-variable-object",
-   "file": "invalid-server-variable-default-not-in-enum.openapi.yaml"
+   "file": "cases/ae/3.0.4/invalid-server-variable-default-not-in-enum.openapi.yaml"
   },
   {
    "id": "ae-3.0.4-invalid-link-unknown-operation",
@@ -426,7 +426,7 @@
    "expect": "invalid",
    "rule": "a link operationId must name an existing operation",
    "spec": "https://spec.openapis.org/oas/v3.0.4.html#link-object",
-   "file": "invalid-link-unknown-operation.openapi.yaml"
+   "file": "cases/ae/3.0.4/invalid-link-unknown-operation.openapi.yaml"
   },
   {
    "id": "ae-3.1.1-valid-base",
@@ -436,7 +436,7 @@
    "expect": "valid",
    "rule": "the base document: paths, path-level parameter, request body, $refs, security, tags",
    "spec": "https://spec.openapis.org/oas/v3.1.1.html#openapi-object",
-   "file": "valid-base.openapi.yaml"
+   "file": "cases/ae/3.1.1/valid-base.openapi.yaml"
   },
   {
    "id": "ae-3.1.1-valid-response-range",
@@ -446,7 +446,7 @@
    "expect": "valid",
    "rule": "a response code may be a range like 4XX, and default is allowed",
    "spec": "https://spec.openapis.org/oas/v3.1.1.html#responses-object",
-   "file": "valid-response-range.openapi.yaml"
+   "file": "cases/ae/3.1.1/valid-response-range.openapi.yaml"
   },
   {
    "id": "ae-3.1.1-valid-extensions",
@@ -456,7 +456,7 @@
    "expect": "valid",
    "rule": "x- specification extensions are allowed on most objects",
    "spec": "https://spec.openapis.org/oas/v3.1.1.html#specification-extensions",
-   "file": "valid-extensions.openapi.yaml"
+   "file": "cases/ae/3.1.1/valid-extensions.openapi.yaml"
   },
   {
    "id": "ae-3.1.1-valid-undeclared-operation-tag",
@@ -466,7 +466,7 @@
    "expect": "valid",
    "rule": "an operation may use a tag the top-level tags list does not declare",
    "spec": "https://spec.openapis.org/oas/v3.1.1.html#tag-object",
-   "file": "valid-undeclared-operation-tag.openapi.yaml"
+   "file": "cases/ae/3.1.1/valid-undeclared-operation-tag.openapi.yaml"
   },
   {
    "id": "ae-3.1.1-valid-path-template-different-literal",
@@ -476,7 +476,7 @@
    "expect": "valid",
    "rule": "paths that differ in a literal segment are distinct (/pets/{petId} and /pets/mine)",
    "spec": "https://spec.openapis.org/oas/v3.1.1.html#paths-object",
-   "file": "valid-path-template-different-literal.openapi.yaml"
+   "file": "cases/ae/3.1.1/valid-path-template-different-literal.openapi.yaml"
   },
   {
    "id": "ae-3.1.1-valid-no-responses",
@@ -486,7 +486,7 @@
    "expect": "valid",
    "rule": "from 3.1 an operation may omit responses",
    "spec": "https://spec.openapis.org/oas/v3.1.1.html#operation-object",
-   "file": "valid-no-responses.openapi.yaml"
+   "file": "cases/ae/3.1.1/valid-no-responses.openapi.yaml"
   },
   {
    "id": "ae-3.1.1-valid-webhooks-only",
@@ -496,7 +496,7 @@
    "expect": "valid",
    "rule": "from 3.1 a document may have webhooks and no paths",
    "spec": "https://spec.openapis.org/oas/v3.1.1.html#openapi-object",
-   "file": "valid-webhooks-only.openapi.yaml"
+   "file": "cases/ae/3.1.1/valid-webhooks-only.openapi.yaml"
   },
   {
    "id": "ae-3.1.1-valid-type-array-null",
@@ -506,7 +506,7 @@
    "expect": "valid",
    "rule": "from 3.1 a schema type may be an array including \"null\"",
    "spec": "https://spec.openapis.org/oas/v3.1.1.html#schema-object",
-   "file": "valid-type-array-null.openapi.yaml"
+   "file": "cases/ae/3.1.1/valid-type-array-null.openapi.yaml"
   },
   {
    "id": "ae-3.1.1-valid-license-identifier",
@@ -516,7 +516,7 @@
    "expect": "valid",
    "rule": "from 3.1 license may carry an SPDX identifier",
    "spec": "https://spec.openapis.org/oas/v3.1.1.html#license-object",
-   "file": "valid-license-identifier.openapi.yaml"
+   "file": "cases/ae/3.1.1/valid-license-identifier.openapi.yaml"
   },
   {
    "id": "ae-3.1.1-valid-path-item-ref-component",
@@ -526,7 +526,7 @@
    "expect": "valid",
    "rule": "from 3.1 components may hold pathItems",
    "spec": "https://spec.openapis.org/oas/v3.1.1.html#components-object",
-   "file": "valid-path-item-ref-component.openapi.yaml"
+   "file": "cases/ae/3.1.1/valid-path-item-ref-component.openapi.yaml"
   },
   {
    "id": "ae-3.1.1-invalid-missing-info",
@@ -536,7 +536,7 @@
    "expect": "invalid",
    "rule": "info is required",
    "spec": "https://spec.openapis.org/oas/v3.1.1.html#openapi-object",
-   "file": "invalid-missing-info.openapi.yaml"
+   "file": "cases/ae/3.1.1/invalid-missing-info.openapi.yaml"
   },
   {
    "id": "ae-3.1.1-invalid-missing-info-version",
@@ -546,7 +546,7 @@
    "expect": "invalid",
    "rule": "info.version is required",
    "spec": "https://spec.openapis.org/oas/v3.1.1.html#info-object",
-   "file": "invalid-missing-info-version.openapi.yaml"
+   "file": "cases/ae/3.1.1/invalid-missing-info-version.openapi.yaml"
   },
   {
    "id": "ae-3.1.1-invalid-openapi-version",
@@ -556,7 +556,7 @@
    "expect": "invalid",
    "rule": "the openapi field must be a full major.minor.patch version of this line",
    "spec": "https://spec.openapis.org/oas/v3.1.1.html#openapi-object",
-   "file": "invalid-openapi-version.openapi.yaml"
+   "file": "cases/ae/3.1.1/invalid-openapi-version.openapi.yaml"
   },
   {
    "id": "ae-3.1.1-invalid-path-no-leading-slash",
@@ -566,7 +566,7 @@
    "expect": "invalid",
    "rule": "path keys must begin with a slash",
    "spec": "https://spec.openapis.org/oas/v3.1.1.html#paths-object",
-   "file": "invalid-path-no-leading-slash.openapi.yaml"
+   "file": "cases/ae/3.1.1/invalid-path-no-leading-slash.openapi.yaml"
   },
   {
    "id": "ae-3.1.1-invalid-response-code",
@@ -576,7 +576,7 @@
    "expect": "invalid",
    "rule": "response keys are HTTP status codes, ranges like 2XX, or default",
    "spec": "https://spec.openapis.org/oas/v3.1.1.html#responses-object",
-   "file": "invalid-response-code.openapi.yaml"
+   "file": "cases/ae/3.1.1/invalid-response-code.openapi.yaml"
   },
   {
    "id": "ae-3.1.1-invalid-response-no-description",
@@ -586,7 +586,7 @@
    "expect": "invalid",
    "rule": "a Response Object requires description (before 3.2)",
    "spec": "https://spec.openapis.org/oas/v3.1.1.html#response-object",
-   "file": "invalid-response-no-description.openapi.yaml"
+   "file": "cases/ae/3.1.1/invalid-response-no-description.openapi.yaml"
   },
   {
    "id": "ae-3.1.1-invalid-path-param-not-required",
@@ -596,7 +596,7 @@
    "expect": "invalid",
    "rule": "a path parameter must have required: true",
    "spec": "https://spec.openapis.org/oas/v3.1.1.html#parameter-object",
-   "file": "invalid-path-param-not-required.openapi.yaml"
+   "file": "cases/ae/3.1.1/invalid-path-param-not-required.openapi.yaml"
   },
   {
    "id": "ae-3.1.1-invalid-parameter-in",
@@ -606,7 +606,7 @@
    "expect": "invalid",
    "rule": "parameter in must be query, header, path or cookie",
    "spec": "https://spec.openapis.org/oas/v3.1.1.html#parameter-object",
-   "file": "invalid-parameter-in.openapi.yaml"
+   "file": "cases/ae/3.1.1/invalid-parameter-in.openapi.yaml"
   },
   {
    "id": "ae-3.1.1-invalid-parameter-schema-and-content",
@@ -616,7 +616,7 @@
    "expect": "invalid",
    "rule": "a parameter has schema or content, not both",
    "spec": "https://spec.openapis.org/oas/v3.1.1.html#parameter-object",
-   "file": "invalid-parameter-schema-and-content.openapi.yaml"
+   "file": "cases/ae/3.1.1/invalid-parameter-schema-and-content.openapi.yaml"
   },
   {
    "id": "ae-3.1.1-invalid-security-scheme-type",
@@ -626,7 +626,7 @@
    "expect": "invalid",
    "rule": "security scheme type must be one of the defined types",
    "spec": "https://spec.openapis.org/oas/v3.1.1.html#security-scheme-object",
-   "file": "invalid-security-scheme-type.openapi.yaml"
+   "file": "cases/ae/3.1.1/invalid-security-scheme-type.openapi.yaml"
   },
   {
    "id": "ae-3.1.1-invalid-oauth2-no-flows",
@@ -636,7 +636,7 @@
    "expect": "invalid",
    "rule": "an oauth2 security scheme requires flows",
    "spec": "https://spec.openapis.org/oas/v3.1.1.html#security-scheme-object",
-   "file": "invalid-oauth2-no-flows.openapi.yaml"
+   "file": "cases/ae/3.1.1/invalid-oauth2-no-flows.openapi.yaml"
   },
   {
    "id": "ae-3.1.1-invalid-component-key",
@@ -646,7 +646,7 @@
    "expect": "invalid",
    "rule": "component keys must match ^[a-zA-Z0-9.\\-_]+$",
    "spec": "https://spec.openapis.org/oas/v3.1.1.html#components-object",
-   "file": "invalid-component-key.openapi.yaml"
+   "file": "cases/ae/3.1.1/invalid-component-key.openapi.yaml"
   },
   {
    "id": "ae-3.1.1-invalid-unknown-root-field",
@@ -656,7 +656,7 @@
    "expect": "invalid",
    "rule": "the OpenAPI Object allows no fields beyond the spec and x- extensions",
    "spec": "https://spec.openapis.org/oas/v3.1.1.html#openapi-object",
-   "file": "invalid-unknown-root-field.openapi.yaml"
+   "file": "cases/ae/3.1.1/invalid-unknown-root-field.openapi.yaml"
   },
   {
    "id": "ae-3.1.1-invalid-schema-type",
@@ -666,7 +666,7 @@
    "expect": "invalid",
    "rule": "a Schema Object type must be a JSON Schema type name",
    "spec": "https://spec.openapis.org/oas/v3.1.1.html#schema-object",
-   "file": "invalid-schema-type.openapi.yaml"
+   "file": "cases/ae/3.1.1/invalid-schema-type.openapi.yaml"
   },
   {
    "id": "ae-3.1.1-invalid-empty-document-3-1",
@@ -676,7 +676,7 @@
    "expect": "invalid",
    "rule": "from 3.1 a document needs at least one of paths, components or webhooks",
    "spec": "https://spec.openapis.org/oas/v3.1.1.html#openapi-object",
-   "file": "invalid-empty-document-3-1.openapi.yaml"
+   "file": "cases/ae/3.1.1/invalid-empty-document-3-1.openapi.yaml"
   },
   {
    "id": "ae-3.1.1-invalid-query-method-before-3-2",
@@ -686,7 +686,7 @@
    "expect": "invalid",
    "rule": "the query operation does not exist before 3.2",
    "spec": "https://spec.openapis.org/oas/v3.1.1.html#path-item-object",
-   "file": "invalid-query-method-before-3-2.openapi.yaml"
+   "file": "cases/ae/3.1.1/invalid-query-method-before-3-2.openapi.yaml"
   },
   {
    "id": "ae-3.1.1-invalid-duplicate-operation-id",
@@ -696,7 +696,7 @@
    "expect": "invalid",
    "rule": "operationId must be unique among all operations",
    "spec": "https://spec.openapis.org/oas/v3.1.1.html#operation-object",
-   "file": "invalid-duplicate-operation-id.openapi.yaml"
+   "file": "cases/ae/3.1.1/invalid-duplicate-operation-id.openapi.yaml"
   },
   {
    "id": "ae-3.1.1-invalid-undeclared-path-param",
@@ -706,7 +706,7 @@
    "expect": "invalid",
    "rule": "every template expression in a path must have a matching path parameter",
    "spec": "https://spec.openapis.org/oas/v3.1.1.html#path-templating",
-   "file": "invalid-undeclared-path-param.openapi.yaml"
+   "file": "cases/ae/3.1.1/invalid-undeclared-path-param.openapi.yaml"
   },
   {
    "id": "ae-3.1.1-invalid-path-param-not-in-template",
@@ -716,7 +716,7 @@
    "expect": "invalid",
    "rule": "a path parameter must correspond to a template expression in the path",
    "spec": "https://spec.openapis.org/oas/v3.1.1.html#parameter-object",
-   "file": "invalid-path-param-not-in-template.openapi.yaml"
+   "file": "cases/ae/3.1.1/invalid-path-param-not-in-template.openapi.yaml"
   },
   {
    "id": "ae-3.1.1-invalid-duplicate-parameter",
@@ -726,7 +726,7 @@
    "expect": "invalid",
    "rule": "a parameter list must not hold two parameters with the same name and location",
    "spec": "https://spec.openapis.org/oas/v3.1.1.html#operation-object",
-   "file": "invalid-duplicate-parameter.openapi.yaml"
+   "file": "cases/ae/3.1.1/invalid-duplicate-parameter.openapi.yaml"
   },
   {
    "id": "ae-3.1.1-invalid-equivalent-templated-paths",
@@ -736,7 +736,7 @@
    "expect": "invalid",
    "rule": "templated paths with the same hierarchy but different names are identical and must not both exist",
    "spec": "https://spec.openapis.org/oas/v3.1.1.html#paths-object",
-   "file": "invalid-equivalent-templated-paths.openapi.yaml"
+   "file": "cases/ae/3.1.1/invalid-equivalent-templated-paths.openapi.yaml"
   },
   {
    "id": "ae-3.1.1-invalid-unresolved-ref",
@@ -746,7 +746,7 @@
    "expect": "invalid",
    "rule": "a $ref must resolve",
    "spec": "https://spec.openapis.org/oas/v3.1.1.html#reference-object",
-   "file": "invalid-unresolved-ref.openapi.yaml"
+   "file": "cases/ae/3.1.1/invalid-unresolved-ref.openapi.yaml"
   },
   {
    "id": "ae-3.1.1-invalid-undefined-security-scheme",
@@ -756,7 +756,7 @@
    "expect": "invalid",
    "rule": "a security requirement must name a scheme declared in components",
    "spec": "https://spec.openapis.org/oas/v3.1.1.html#security-requirement-object",
-   "file": "invalid-undefined-security-scheme.openapi.yaml"
+   "file": "cases/ae/3.1.1/invalid-undefined-security-scheme.openapi.yaml"
   },
   {
    "id": "ae-3.1.1-invalid-duplicate-tag-name",
@@ -766,7 +766,7 @@
    "expect": "invalid",
    "rule": "tag names must be unique",
    "spec": "https://spec.openapis.org/oas/v3.1.1.html#openapi-object",
-   "file": "invalid-duplicate-tag-name.openapi.yaml"
+   "file": "cases/ae/3.1.1/invalid-duplicate-tag-name.openapi.yaml"
   },
   {
    "id": "ae-3.1.1-invalid-server-variable-default-not-in-enum",
@@ -776,7 +776,7 @@
    "expect": "invalid",
    "rule": "a server variable default must be one of its enum values",
    "spec": "https://spec.openapis.org/oas/v3.1.1.html#server-variable-object",
-   "file": "invalid-server-variable-default-not-in-enum.openapi.yaml"
+   "file": "cases/ae/3.1.1/invalid-server-variable-default-not-in-enum.openapi.yaml"
   },
   {
    "id": "ae-3.1.1-invalid-link-unknown-operation",
@@ -786,7 +786,7 @@
    "expect": "invalid",
    "rule": "a link operationId must name an existing operation",
    "spec": "https://spec.openapis.org/oas/v3.1.1.html#link-object",
-   "file": "invalid-link-unknown-operation.openapi.yaml"
+   "file": "cases/ae/3.1.1/invalid-link-unknown-operation.openapi.yaml"
   },
   {
    "id": "ae-3.2.0-valid-base",
@@ -796,7 +796,7 @@
    "expect": "valid",
    "rule": "the base document: paths, path-level parameter, request body, $refs, security, tags",
    "spec": "https://spec.openapis.org/oas/v3.2.0.html#openapi-object",
-   "file": "valid-base.openapi.yaml"
+   "file": "cases/ae/3.2.0/valid-base.openapi.yaml"
   },
   {
    "id": "ae-3.2.0-valid-response-range",
@@ -806,7 +806,7 @@
    "expect": "valid",
    "rule": "a response code may be a range like 4XX, and default is allowed",
    "spec": "https://spec.openapis.org/oas/v3.2.0.html#responses-object",
-   "file": "valid-response-range.openapi.yaml"
+   "file": "cases/ae/3.2.0/valid-response-range.openapi.yaml"
   },
   {
    "id": "ae-3.2.0-valid-extensions",
@@ -816,7 +816,7 @@
    "expect": "valid",
    "rule": "x- specification extensions are allowed on most objects",
    "spec": "https://spec.openapis.org/oas/v3.2.0.html#specification-extensions",
-   "file": "valid-extensions.openapi.yaml"
+   "file": "cases/ae/3.2.0/valid-extensions.openapi.yaml"
   },
   {
    "id": "ae-3.2.0-valid-undeclared-operation-tag",
@@ -826,7 +826,7 @@
    "expect": "valid",
    "rule": "an operation may use a tag the top-level tags list does not declare",
    "spec": "https://spec.openapis.org/oas/v3.2.0.html#tag-object",
-   "file": "valid-undeclared-operation-tag.openapi.yaml"
+   "file": "cases/ae/3.2.0/valid-undeclared-operation-tag.openapi.yaml"
   },
   {
    "id": "ae-3.2.0-valid-path-template-different-literal",
@@ -836,7 +836,7 @@
    "expect": "valid",
    "rule": "paths that differ in a literal segment are distinct (/pets/{petId} and /pets/mine)",
    "spec": "https://spec.openapis.org/oas/v3.2.0.html#paths-object",
-   "file": "valid-path-template-different-literal.openapi.yaml"
+   "file": "cases/ae/3.2.0/valid-path-template-different-literal.openapi.yaml"
   },
   {
    "id": "ae-3.2.0-valid-no-responses",
@@ -846,7 +846,7 @@
    "expect": "valid",
    "rule": "from 3.1 an operation may omit responses",
    "spec": "https://spec.openapis.org/oas/v3.2.0.html#operation-object",
-   "file": "valid-no-responses.openapi.yaml"
+   "file": "cases/ae/3.2.0/valid-no-responses.openapi.yaml"
   },
   {
    "id": "ae-3.2.0-valid-webhooks-only",
@@ -856,7 +856,7 @@
    "expect": "valid",
    "rule": "from 3.1 a document may have webhooks and no paths",
    "spec": "https://spec.openapis.org/oas/v3.2.0.html#openapi-object",
-   "file": "valid-webhooks-only.openapi.yaml"
+   "file": "cases/ae/3.2.0/valid-webhooks-only.openapi.yaml"
   },
   {
    "id": "ae-3.2.0-valid-type-array-null",
@@ -866,7 +866,7 @@
    "expect": "valid",
    "rule": "from 3.1 a schema type may be an array including \"null\"",
    "spec": "https://spec.openapis.org/oas/v3.2.0.html#schema-object",
-   "file": "valid-type-array-null.openapi.yaml"
+   "file": "cases/ae/3.2.0/valid-type-array-null.openapi.yaml"
   },
   {
    "id": "ae-3.2.0-valid-license-identifier",
@@ -876,7 +876,7 @@
    "expect": "valid",
    "rule": "from 3.1 license may carry an SPDX identifier",
    "spec": "https://spec.openapis.org/oas/v3.2.0.html#license-object",
-   "file": "valid-license-identifier.openapi.yaml"
+   "file": "cases/ae/3.2.0/valid-license-identifier.openapi.yaml"
   },
   {
    "id": "ae-3.2.0-valid-path-item-ref-component",
@@ -886,7 +886,7 @@
    "expect": "valid",
    "rule": "from 3.1 components may hold pathItems",
    "spec": "https://spec.openapis.org/oas/v3.2.0.html#components-object",
-   "file": "valid-path-item-ref-component.openapi.yaml"
+   "file": "cases/ae/3.2.0/valid-path-item-ref-component.openapi.yaml"
   },
   {
    "id": "ae-3.2.0-valid-query-method",
@@ -896,7 +896,7 @@
    "expect": "valid",
    "rule": "3.2 adds the query operation to the Path Item",
    "spec": "https://spec.openapis.org/oas/v3.2.0.html#path-item-object",
-   "file": "valid-query-method.openapi.yaml"
+   "file": "cases/ae/3.2.0/valid-query-method.openapi.yaml"
   },
   {
    "id": "ae-3.2.0-valid-additional-operations",
@@ -906,7 +906,7 @@
    "expect": "valid",
    "rule": "3.2 additionalOperations carries methods outside the fixed set",
    "spec": "https://spec.openapis.org/oas/v3.2.0.html#path-item-object",
-   "file": "valid-additional-operations.openapi.yaml"
+   "file": "cases/ae/3.2.0/valid-additional-operations.openapi.yaml"
   },
   {
    "id": "ae-3.2.0-valid-self",
@@ -916,7 +916,7 @@
    "expect": "valid",
    "rule": "3.2 $self gives the document its own base URI",
    "spec": "https://spec.openapis.org/oas/v3.2.0.html#openapi-object",
-   "file": "valid-self.openapi.yaml"
+   "file": "cases/ae/3.2.0/valid-self.openapi.yaml"
   },
   {
    "id": "ae-3.2.0-valid-tag-parent-kind",
@@ -926,7 +926,7 @@
    "expect": "valid",
    "rule": "3.2 tags may name a parent and a kind",
    "spec": "https://spec.openapis.org/oas/v3.2.0.html#tag-object",
-   "file": "valid-tag-parent-kind.openapi.yaml"
+   "file": "cases/ae/3.2.0/valid-tag-parent-kind.openapi.yaml"
   },
   {
    "id": "ae-3.2.0-valid-item-schema",
@@ -936,7 +936,7 @@
    "expect": "valid",
    "rule": "3.2 itemSchema describes each item of a streamed media type",
    "spec": "https://spec.openapis.org/oas/v3.2.0.html#media-type-object",
-   "file": "valid-item-schema.openapi.yaml"
+   "file": "cases/ae/3.2.0/valid-item-schema.openapi.yaml"
   },
   {
    "id": "ae-3.2.0-valid-querystring-parameter",
@@ -946,7 +946,7 @@
    "expect": "valid",
    "rule": "3.2 adds in: querystring, which takes content, not schema",
    "spec": "https://spec.openapis.org/oas/v3.2.0.html#parameter-object",
-   "file": "valid-querystring-parameter.openapi.yaml"
+   "file": "cases/ae/3.2.0/valid-querystring-parameter.openapi.yaml"
   },
   {
    "id": "ae-3.2.0-invalid-missing-info",
@@ -956,7 +956,7 @@
    "expect": "invalid",
    "rule": "info is required",
    "spec": "https://spec.openapis.org/oas/v3.2.0.html#openapi-object",
-   "file": "invalid-missing-info.openapi.yaml"
+   "file": "cases/ae/3.2.0/invalid-missing-info.openapi.yaml"
   },
   {
    "id": "ae-3.2.0-invalid-missing-info-version",
@@ -966,7 +966,7 @@
    "expect": "invalid",
    "rule": "info.version is required",
    "spec": "https://spec.openapis.org/oas/v3.2.0.html#info-object",
-   "file": "invalid-missing-info-version.openapi.yaml"
+   "file": "cases/ae/3.2.0/invalid-missing-info-version.openapi.yaml"
   },
   {
    "id": "ae-3.2.0-invalid-openapi-version",
@@ -976,7 +976,7 @@
    "expect": "invalid",
    "rule": "the openapi field must be a full major.minor.patch version of this line",
    "spec": "https://spec.openapis.org/oas/v3.2.0.html#openapi-object",
-   "file": "invalid-openapi-version.openapi.yaml"
+   "file": "cases/ae/3.2.0/invalid-openapi-version.openapi.yaml"
   },
   {
    "id": "ae-3.2.0-invalid-path-no-leading-slash",
@@ -986,7 +986,7 @@
    "expect": "invalid",
    "rule": "path keys must begin with a slash",
    "spec": "https://spec.openapis.org/oas/v3.2.0.html#paths-object",
-   "file": "invalid-path-no-leading-slash.openapi.yaml"
+   "file": "cases/ae/3.2.0/invalid-path-no-leading-slash.openapi.yaml"
   },
   {
    "id": "ae-3.2.0-invalid-response-code",
@@ -996,7 +996,7 @@
    "expect": "invalid",
    "rule": "response keys are HTTP status codes, ranges like 2XX, or default",
    "spec": "https://spec.openapis.org/oas/v3.2.0.html#responses-object",
-   "file": "invalid-response-code.openapi.yaml"
+   "file": "cases/ae/3.2.0/invalid-response-code.openapi.yaml"
   },
   {
    "id": "ae-3.2.0-invalid-path-param-not-required",
@@ -1006,7 +1006,7 @@
    "expect": "invalid",
    "rule": "a path parameter must have required: true",
    "spec": "https://spec.openapis.org/oas/v3.2.0.html#parameter-object",
-   "file": "invalid-path-param-not-required.openapi.yaml"
+   "file": "cases/ae/3.2.0/invalid-path-param-not-required.openapi.yaml"
   },
   {
    "id": "ae-3.2.0-invalid-parameter-in",
@@ -1016,7 +1016,7 @@
    "expect": "invalid",
    "rule": "parameter in must be query, header, path or cookie",
    "spec": "https://spec.openapis.org/oas/v3.2.0.html#parameter-object",
-   "file": "invalid-parameter-in.openapi.yaml"
+   "file": "cases/ae/3.2.0/invalid-parameter-in.openapi.yaml"
   },
   {
    "id": "ae-3.2.0-invalid-parameter-schema-and-content",
@@ -1026,7 +1026,7 @@
    "expect": "invalid",
    "rule": "a parameter has schema or content, not both",
    "spec": "https://spec.openapis.org/oas/v3.2.0.html#parameter-object",
-   "file": "invalid-parameter-schema-and-content.openapi.yaml"
+   "file": "cases/ae/3.2.0/invalid-parameter-schema-and-content.openapi.yaml"
   },
   {
    "id": "ae-3.2.0-invalid-security-scheme-type",
@@ -1036,7 +1036,7 @@
    "expect": "invalid",
    "rule": "security scheme type must be one of the defined types",
    "spec": "https://spec.openapis.org/oas/v3.2.0.html#security-scheme-object",
-   "file": "invalid-security-scheme-type.openapi.yaml"
+   "file": "cases/ae/3.2.0/invalid-security-scheme-type.openapi.yaml"
   },
   {
    "id": "ae-3.2.0-invalid-oauth2-no-flows",
@@ -1046,7 +1046,7 @@
    "expect": "invalid",
    "rule": "an oauth2 security scheme requires flows",
    "spec": "https://spec.openapis.org/oas/v3.2.0.html#security-scheme-object",
-   "file": "invalid-oauth2-no-flows.openapi.yaml"
+   "file": "cases/ae/3.2.0/invalid-oauth2-no-flows.openapi.yaml"
   },
   {
    "id": "ae-3.2.0-invalid-component-key",
@@ -1056,7 +1056,7 @@
    "expect": "invalid",
    "rule": "component keys must match ^[a-zA-Z0-9.\\-_]+$",
    "spec": "https://spec.openapis.org/oas/v3.2.0.html#components-object",
-   "file": "invalid-component-key.openapi.yaml"
+   "file": "cases/ae/3.2.0/invalid-component-key.openapi.yaml"
   },
   {
    "id": "ae-3.2.0-invalid-unknown-root-field",
@@ -1066,7 +1066,7 @@
    "expect": "invalid",
    "rule": "the OpenAPI Object allows no fields beyond the spec and x- extensions",
    "spec": "https://spec.openapis.org/oas/v3.2.0.html#openapi-object",
-   "file": "invalid-unknown-root-field.openapi.yaml"
+   "file": "cases/ae/3.2.0/invalid-unknown-root-field.openapi.yaml"
   },
   {
    "id": "ae-3.2.0-invalid-schema-type",
@@ -1076,7 +1076,7 @@
    "expect": "invalid",
    "rule": "a Schema Object type must be a JSON Schema type name",
    "spec": "https://spec.openapis.org/oas/v3.2.0.html#schema-object",
-   "file": "invalid-schema-type.openapi.yaml"
+   "file": "cases/ae/3.2.0/invalid-schema-type.openapi.yaml"
   },
   {
    "id": "ae-3.2.0-invalid-empty-document-3-1",
@@ -1086,7 +1086,7 @@
    "expect": "invalid",
    "rule": "from 3.1 a document needs at least one of paths, components or webhooks",
    "spec": "https://spec.openapis.org/oas/v3.2.0.html#openapi-object",
-   "file": "invalid-empty-document-3-1.openapi.yaml"
+   "file": "cases/ae/3.2.0/invalid-empty-document-3-1.openapi.yaml"
   },
   {
    "id": "ae-3.2.0-invalid-additional-operations-standard-method",
@@ -1096,7 +1096,7 @@
    "expect": "invalid",
    "rule": "additionalOperations must not repeat a method that has a fixed field (GET)",
    "spec": "https://spec.openapis.org/oas/v3.2.0.html#path-item-object",
-   "file": "invalid-additional-operations-standard-method.openapi.yaml"
+   "file": "cases/ae/3.2.0/invalid-additional-operations-standard-method.openapi.yaml"
   },
   {
    "id": "ae-3.2.0-invalid-duplicate-operation-id",
@@ -1106,7 +1106,7 @@
    "expect": "invalid",
    "rule": "operationId must be unique among all operations",
    "spec": "https://spec.openapis.org/oas/v3.2.0.html#operation-object",
-   "file": "invalid-duplicate-operation-id.openapi.yaml"
+   "file": "cases/ae/3.2.0/invalid-duplicate-operation-id.openapi.yaml"
   },
   {
    "id": "ae-3.2.0-invalid-undeclared-path-param",
@@ -1116,7 +1116,7 @@
    "expect": "invalid",
    "rule": "every template expression in a path must have a matching path parameter",
    "spec": "https://spec.openapis.org/oas/v3.2.0.html#path-templating",
-   "file": "invalid-undeclared-path-param.openapi.yaml"
+   "file": "cases/ae/3.2.0/invalid-undeclared-path-param.openapi.yaml"
   },
   {
    "id": "ae-3.2.0-invalid-path-param-not-in-template",
@@ -1126,7 +1126,7 @@
    "expect": "invalid",
    "rule": "a path parameter must correspond to a template expression in the path",
    "spec": "https://spec.openapis.org/oas/v3.2.0.html#parameter-object",
-   "file": "invalid-path-param-not-in-template.openapi.yaml"
+   "file": "cases/ae/3.2.0/invalid-path-param-not-in-template.openapi.yaml"
   },
   {
    "id": "ae-3.2.0-invalid-duplicate-parameter",
@@ -1136,7 +1136,7 @@
    "expect": "invalid",
    "rule": "a parameter list must not hold two parameters with the same name and location",
    "spec": "https://spec.openapis.org/oas/v3.2.0.html#operation-object",
-   "file": "invalid-duplicate-parameter.openapi.yaml"
+   "file": "cases/ae/3.2.0/invalid-duplicate-parameter.openapi.yaml"
   },
   {
    "id": "ae-3.2.0-invalid-equivalent-templated-paths",
@@ -1146,7 +1146,7 @@
    "expect": "invalid",
    "rule": "templated paths with the same hierarchy but different names are identical and must not both exist",
    "spec": "https://spec.openapis.org/oas/v3.2.0.html#paths-object",
-   "file": "invalid-equivalent-templated-paths.openapi.yaml"
+   "file": "cases/ae/3.2.0/invalid-equivalent-templated-paths.openapi.yaml"
   },
   {
    "id": "ae-3.2.0-invalid-unresolved-ref",
@@ -1156,7 +1156,7 @@
    "expect": "invalid",
    "rule": "a $ref must resolve",
    "spec": "https://spec.openapis.org/oas/v3.2.0.html#reference-object",
-   "file": "invalid-unresolved-ref.openapi.yaml"
+   "file": "cases/ae/3.2.0/invalid-unresolved-ref.openapi.yaml"
   },
   {
    "id": "ae-3.2.0-invalid-undefined-security-scheme",
@@ -1166,7 +1166,7 @@
    "expect": "invalid",
    "rule": "a security requirement must name a scheme declared in components",
    "spec": "https://spec.openapis.org/oas/v3.2.0.html#security-requirement-object",
-   "file": "invalid-undefined-security-scheme.openapi.yaml"
+   "file": "cases/ae/3.2.0/invalid-undefined-security-scheme.openapi.yaml"
   },
   {
    "id": "ae-3.2.0-invalid-duplicate-tag-name",
@@ -1176,7 +1176,7 @@
    "expect": "invalid",
    "rule": "tag names must be unique",
    "spec": "https://spec.openapis.org/oas/v3.2.0.html#openapi-object",
-   "file": "invalid-duplicate-tag-name.openapi.yaml"
+   "file": "cases/ae/3.2.0/invalid-duplicate-tag-name.openapi.yaml"
   },
   {
    "id": "ae-3.2.0-invalid-server-variable-default-not-in-enum",
@@ -1186,7 +1186,7 @@
    "expect": "invalid",
    "rule": "a server variable default must be one of its enum values",
    "spec": "https://spec.openapis.org/oas/v3.2.0.html#server-variable-object",
-   "file": "invalid-server-variable-default-not-in-enum.openapi.yaml"
+   "file": "cases/ae/3.2.0/invalid-server-variable-default-not-in-enum.openapi.yaml"
   },
   {
    "id": "ae-3.2.0-invalid-link-unknown-operation",
@@ -1196,7 +1196,7 @@
    "expect": "invalid",
    "rule": "a link operationId must name an existing operation",
    "spec": "https://spec.openapis.org/oas/v3.2.0.html#link-object",
-   "file": "invalid-link-unknown-operation.openapi.yaml"
+   "file": "cases/ae/3.2.0/invalid-link-unknown-operation.openapi.yaml"
   },
   {
    "id": "ae-3.2.0-invalid-tag-parent-unknown",
@@ -1206,7 +1206,7 @@
    "expect": "invalid",
    "rule": "a tag parent must name a tag that exists",
    "spec": "https://spec.openapis.org/oas/v3.2.0.html#tag-object",
-   "file": "invalid-tag-parent-unknown.openapi.yaml"
+   "file": "cases/ae/3.2.0/invalid-tag-parent-unknown.openapi.yaml"
   },
   {
    "id": "ae-3.2.0-invalid-tag-parent-cycle",
@@ -1216,7 +1216,7 @@
    "expect": "invalid",
    "rule": "tag parents must not form a cycle",
    "spec": "https://spec.openapis.org/oas/v3.2.0.html#tag-object",
-   "file": "invalid-tag-parent-cycle.openapi.yaml"
+   "file": "cases/ae/3.2.0/invalid-tag-parent-cycle.openapi.yaml"
   },
   {
    "id": "oai-3.1-fail-example-examples",
